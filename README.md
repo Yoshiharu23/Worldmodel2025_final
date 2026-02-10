@@ -20,9 +20,9 @@
 ## 📌 リポジトリ内容
 
 - **ベースライン（Slot Attention / SAVi系の実装）**
-  - `SAVi_MOVi-A_baseline_800000.ipynb`
+  - `SAVi_MOVi-A_baseline.ipynb`
 - **提案手法（意味–位置分離モデル）**
-  - `SAVi_MOVi-A_disentangled_80000.ipynb`
+  - `SAVi_MOVi-A_disentangled.ipynb`
 - **研究計画・補足資料**
   - `世界モデル研究計画.docx`
 
@@ -108,8 +108,8 @@ pip install -r requirements.txt
 ```text
 .
 ├── notebooks/
-│   ├──SAVi_MOVi-A_disentangled_80000.ipynb
-│   ├──SAVi_MOVi-A_baseline_800000.ipynb
+│   ├──SAVi_MOVi-A_disentangled.ipynb
+│   ├──SAVi_MOVi-A_baseline.ipynb
 │   └──SlotAttention_MOVi_A.ipynb
 ├── docs/
 │   └── 世界モデル研究計画.docx
