@@ -20,9 +20,9 @@
 ## 📌 リポジトリ内容
 
 - **ベースライン（Slot Attention / SAVi系の実装）**
-  - `SAVi_MOVi-A_baseline_800000.ipynb`
+  - `SAVi_MOVi-A_baseline.ipynb`
 - **提案手法（意味–位置分離モデル）**
-  - `SAVi_MOVi-A_disentangled_80000.ipynb`
+  - `SAVi_MOVi-A_disentangled.ipynb`
 - **研究計画・補足資料**
   - `世界モデル研究計画.docx`
 
@@ -69,14 +69,78 @@ pip install -U pip
 pip install -r requirements.txt
 ```
 ---
+
 ## 📁 データセット
 
 本研究は MOVi-A 系の動画データ（SAVi/slot-based object-centric video modeling で一般的な形式）を想定しています。
 
-MOVi-A（または同等データ）を準備
+1.MOVi-A（または同等データ）を準備
 
-ノートブック内の DATA_ROOT / DATASET_DIR などのパスを設定
+2.ノートブック内の DATA_ROOT / DATASET_DIR などのパスを設定
 
-baseline と disentangled で 同一 split / 前処理になっていることを確認
+3.baseline と disentangled で 同一 split / 前処理になっていることを確認
 
-マスク系の指標（IoU）を評価する場合は、GT マスクが利用できるデータであることが望ましいです。
+> 注：マスク系の指標（IoU）を評価する場合は、GT マスクが利用できるデータであることが望ましいです。
+
+---
+
+## 📏 評価指標
+### Tracking
+- ID swap rate：時間方向でスロットが同一性を入れ替える割合（低いほど良い）
+- matched IoU：対応付け（assignment）後のマスク重なり（高いほど良い）
+
+### 長期記憶（mem / no_mem 比較）
+- ReID after occlusion：遮蔽後に同一物体として再同定できるか
+- Long-horizon rollout：長期予測の画質（MSE/PSNR）
+- （任意）Ablation gap：ギャップ長に対する性能変化
+
+---
+
+## 🔁 再現性（Reproducibility）
+結果の安定化・信頼性向上のため、以下を推奨します：
+- 乱数 seed 固定（PyTorch / NumPy）
+- 複数 seed の平均±標準偏差を報告
+- 評価 n_batches を増やす
+- baseline と提案法で **前処理・split・K（slot数）**等を揃える
+
+---
+## 🗂️ ディレクトリ構成
+```text
+.
+├── notebooks/
+│   ├──SAVi_MOVi-A_disentangled.ipynb
+│   ├──SAVi_MOVi-A_baseline.ipynb
+│   └──SlotAttention_MOVi_A.ipynb
+├── docs/
+│   └── 世界モデル研究計画.docx
+├── results/
+│   ├──Disentangled_movi-A
+│   ├──Slot_Attention for Video_movi-A
+│   └──Slot_attention_movi-A    
+├── docs/
+│   └── 世界モデル研究計画.docx
+└── README.md
+```
+---
+
+## 📝 引用（Citation）
+本リポジトリを利用・参照する場合は、以下の形式で引用してください：
+```bibtex
+@misc{disentangled_meaning_position_video_memory,
+  title   = {意味・位置の分離学習による動画生成AIの長期記憶改善},
+  author  = {Your Name},
+  year    = {2026},
+  note    = {GitHub repository},
+}
+```
+---
+
+## 🙌 Acknowledgements
+- Slot Attention / object-centric learning に関する先行研究
+- SAVi 系の動画 object-centric modeling 研究
+- MOVi-A データセット周辺のエコシステム
+
+---
+
+## Contact
+質問や議論は Issue で歓迎します。
