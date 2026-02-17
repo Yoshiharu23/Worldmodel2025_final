@@ -17,7 +17,7 @@
 
 ---
 
-## 📌 リポジトリ内容
+## 📌 主なリポジトリ内容
 
 - **ベースライン（Slot Attention / SAVi系の実装）**
   - `SAVi_MOVi-A_baseline.ipynb`
@@ -109,14 +109,10 @@ pip install -r requirements.txt
 │   ├──SAVi_MOVi-A_disentangled.ipynb
 │   ├──SAVi_MOVi-A_baseline.ipynb
 │   └──SlotAttention_MOVi_A.ipynb
-├── docs/
-│   └── 世界モデル研究計画.docx
 ├── results/
 │   ├──Disentangled_movi-A
 │   ├──Slot_Attention for Video_movi-A
 │   └──Slot_attention_movi-A    
-├── docs/
-│   └── 世界モデル研究計画.docx
 └── README.md
 ```
 ---
